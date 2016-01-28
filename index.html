@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="список сотрудников">
+  <meta name="author" content="VSCraft">
+  <link rel="shortcut icon" href="/pub/images/favicon.ico">
+
+  <title>Список сотрудников предприятия</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/pub/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/pub/css/bootstrap-theme.min.css" rel="stylesheet">
+
+  <link href="/pub/css/sticky-footer-navbar.css" rel="stylesheet">
+  <link href="/pub/css/demo.css" rel="stylesheet">
+  <link href="/pub/css/pickmeup.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Список сотрудников</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#birthdays" data-toggle="collapse">Дни рождения</a></li>
+          <li><a href="#movements" data-toggle="collapse">Перемещения</a></li>
+          <li><a href="#listof" data-toggle="collapse">Списочный состав</a></li>
+          <li><a href="#vacations">Отпуска</a></li>
+          <li><a href="#fired">Уволенные</a></li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <!-- <li><a href="#" type="button" class="btn btn-default btn-md disabled ">Сформировать</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Админ</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- form placeholder -->
+  <br/>
+  <br/>
+  <br/>
+  <div id="birthdays" class="col-sm-24 main collapse in">
+    <form action="#" method="post" class="form-inline" role="form">
+      <div class="form-group">
+        <label for="id-rep_dept">Подразделение: </label>
+        <select class="form-control" id="id-rep_dept" name="rep_dept">
+          <option>100 САДУ</option>
+          <option>200 ОРУ</option>
+          <option>300 Отдел кадров</option>
+          <option>400 САИМ</option>
+        </select>
+
+        <!--        <label for="id-rep_period">Период: </label>
+        <input class="form-control" type="text" id="id-rep_period" name="rep_period" size="25"></input> -->
+
+        <label for="id-rep-period-from">С: </label>
+        <input class="form-control" type="text" id="id-rep-period-from" name="rep-period-from">
+        <label for="id-rep-period-to">по: </label>
+        <input class="form-control" type="text" id="id-rep-period-to" name="rep-period-to">
+<!--
+	<article>
+		<div class="range hidden"></div>
+	</article>
+-->
+        <button type="submit"  data-toggle="collapse" href="birthdays" class=" btn btn-default">Сформировать</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-24 main">
+    <h1>&nbsp;</h1>
+    <h4 class="sub-header">Дни рождения сотрудников подразделения ОРЭиТ</h4>
+  </div>
+
+  <!-- main table -->
+
+  <div class="table-responsive">
+    <table class="table table-striped table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+          <th>Header</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1,001</td>
+          <td>Lorem</td>
+          <td>ipsum</td>
+          <td>dolor</td>
+          <td>sit</td>
+        </tr>
+        <tr class="info" data-toggle="tooltip" title="Юбилей 45 лет">
+          <td>1,002</td>
+          <td>amet</td>
+          <td>consectetur</td>
+          <td>adipiscing</td>
+          <td>elit</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>Integer</td>
+          <td>nec</td>
+          <td>odio</td>
+          <td>Praesent</td>
+        </tr>
+        <tr class="info" data-toggle="tooltip" title="Юбилей 30 лет">
+          <td>1,003</td>
+          <td>libero</td>
+          <td>Sed</td>
+          <td>cursus</td>
+          <td>ante</td>
+        </tr>
+        <tr>
+          <td>1,002</td>
+          <td>amet</td>
+          <td>consectetur</td>
+          <td>adipiscing</td>
+          <td>elit</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>Integer</td>
+          <td>nec</td>
+          <td>odio</td>
+          <td>Praesent</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>libero</td>
+          <td>Sed</td>
+          <td>cursus</td>
+          <td>ante</td>
+        </tr>
+        <tr>
+          <td>1,002</td>
+          <td>amet</td>
+          <td>consectetur</td>
+          <td>adipiscing</td>
+          <td>elit</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>Integer</td>
+          <td>nec</td>
+          <td>odio</td>
+          <td>Praesent</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>libero</td>
+          <td>Sed</td>
+          <td>cursus</td>
+          <td>ante</td>
+        </tr>
+        <tr>
+          <td>1,004</td>
+          <td>dapibus</td>
+          <td>diam</td>
+          <td>Sed</td>
+          <td>nisi</td>
+        </tr>
+        <tr>
+          <td>1,005</td>
+          <td>Nulla</td>
+          <td>quis</td>
+          <td>sem</td>
+          <td>at</td>
+        </tr>
+        <tr>
+          <td>1,006</td>
+          <td>nibh</td>
+          <td>elementum</td>
+          <td>imperdiet</td>
+          <td>Duis</td>
+        </tr>
+        <tr>
+          <td>1,007</td>
+          <td>sagittis</td>
+          <td>ipsum</td>
+          <td>Praesent</td>
+          <td>mauris</td>
+        </tr>
+        <tr>
+          <td>1,008</td>
+          <td>Fusce</td>
+          <td>nec</td>
+          <td>tellus</td>
+          <td>sed</td>
+        </tr>
+        <tr>
+          <td>1,009</td>
+          <td>augue</td>
+          <td>semper</td>
+          <td>porta</td>
+          <td>Mauris</td>
+        </tr>
+        <tr>
+          <td>1,010</td>
+          <td>massa</td>
+          <td>Vestibulum</td>
+          <td>lacinia</td>
+          <td>arcu</td>
+        </tr>
+        <tr>
+          <td>1,011</td>
+          <td>eget</td>
+          <td>nulla</td>
+          <td>Class</td>
+          <td>aptent</td>
+        </tr>
+        <tr>
+          <td>1,012</td>
+          <td>taciti</td>
+          <td>sociosqu</td>
+          <td>ad</td>
+          <td>litora</td>
+        </tr>
+        <tr>
+          <td>1,013</td>
+          <td>torquent</td>
+          <td>per</td>
+          <td>conubia</td>
+          <td>nostra</td>
+        </tr>
+        <tr>
+          <td>1,014</td>
+          <td>per</td>
+          <td>inceptos</td>
+          <td>himenaeos</td>
+          <td>Curabitur</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+  <!-- Footer to call admin -->
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted text-right">
+        <a href="mailto:sukhikh@moscollector.ru">Если страница не работает, сообщите. 
+          <span class="glyphicon glyphicon-envelope"></span>
+        </a>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/pub/scripts/js/jquery.min.js"></script>
+  <script src="/pub/scripts/js/bootstrap.min.js"></script>
+  <script src="/pub/scripts/js/jquery.pickmeup.js"></script>
+  <script>
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+  </script>
+  <script>
+    $(function () {
+	$('.single').pickmeup({
+		flat	: true
+	});
+	$('.multiple').pickmeup({
+		flat	: true,
+		mode	: 'multiple'
+	});
+	$('.range').pickmeup({
+		flat	: true,
+		mode	: 'range'
+	});
+	var plus_5_days	= new Date;
+	plus_5_days.addDays(5);
+	$('.3-calendars').pickmeup({
+		flat		: true,
+		date		: [
+			new Date,
+			plus_5_days
+		],
+		mode		: 'range',
+		calendars	: 3
+	});
+	$('input').pickmeup({
+		position		: 'right',
+		hide_on_select	: true
+	});
+});
+
+  </script>
+</body>
+
+</html>
