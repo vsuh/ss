@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+   "settings": {
+    "xdebug": {
+         "url": "http://sss/index.php/#movements",
+        }
+    }
+
+}

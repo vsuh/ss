@@ -1,5 +1,39 @@
-doctype
-  head
-  body
-    p Hello world!
-    p.small gey out
+include inc_header
+body
+  include inc_navbar
+
+  br
+  br
+  br
+  div#formframe.col-sm-24.main.collapse.in
+    form.form-inline(action="#", method="post", role="form")
+      div.form-group
+
+        label(for="id-rep_dept") &nbsp;&nbsp;Подразделение: &nbsp;&nbsp;
+        select.form-control(id="id-rep_dept", name="rep_dept")
+          option(value="100") 100 САДУ
+          option(value="200") 200 ОРУ
+          option(value="300") 300 Отдел кадров
+          option(value="400") 400 САИМ
+        label(for="id-rep-period-from") &nbsp;&nbsp; С:&nbsp;
+        input.form-control(type="text", id="id-rep-period-from", name="rep-period-from")
+        label(for="id-rep-period-to") &nbsp;&nbsp; по:&nbsp;
+        input.form-control(type="text" id="id-rep-period-to" name="rep-period-to")
+        span &nbsp;&nbsp;
+        button.btn.btn-default(type="submit", data-toggle="#formframe") Сформировать
+
+  div.col-sm-24.main
+  	if $mode == 'bd'
+	   	h4.sub-header Дни рождения сотрудников подразделения ОРЭиТ
+  	if $mode == 'mv'
+	   	h4.sub-header Перемещения сотрудников 
+  	if $mode == 'ls'
+	   	h4.sub-header Списочный состав
+  	if $mode == 'vc'
+	   	h4.sub-header Отпуска сотрудников
+  	if $mode == 'fr'
+	   	h4.sub-header Уволенные сотрудники
+
+    h2= 'Mode = '.$mode
+
+  include inc_footer
