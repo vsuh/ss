@@ -1,7 +1,8 @@
 <?php
 header ("Content-Type: text/html; charset=utf-8");
 require_once 'vendor/autoload.php';
-use Tale\Jade;
+require_once ''
+//use Tale\Jade;
 
 var_dump($_GET);
 //print_r($_GLOBALS);
@@ -13,7 +14,7 @@ $tpl = 'index';
 //include('vendor/autoload.php');
 
 $renderer = new Jade\Renderer([
-	        'lifeTime' => 3600,
+//	        'lifeTime' => 3600,
             'paths' => [__DIR__.'/pub/tpls']
 
  ]);

@@ -1,4 +1,5 @@
 <?php
+function init_ws_link()
 try {  
     $client = @new SoapClient($_ws);  
 	} catch (Exception $e) {  
