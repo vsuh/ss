@@ -21,12 +21,24 @@ div.navbar.navbar-default.navbar-fixed-top(role="navigation")
         else
           li
             a(href="?mode=mv") Перемещения
-        li
-          a(href="?mode=ls") Списочный состав
-        li
-          a(href="?mode=vc") Отпуска
-        li
-          a(href="?mode=fr") Уволенные
+        if $mode == 'ls'
+          li.active
+            a(href="?mode=ls", data-toggle="collapse") Списочный состав
+        else
+          li
+            a(href="?mode=ls") Списочный состав
+        if $mode == 'vc'
+          li.active
+            a(href="?mode=vc", data-toggle="collapse") Отпуска
+        else
+          li
+            a(href="?mode=vc") Отпуска
+        if $mode == 'fr'
+          li.active
+            a(href="?mode=fr", data-toggle="collapse") Уволенные
+        else
+          li
+            a(href="?mode=fr") Уволенные
         li &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       ul.nav.navbar-nav.navbar-right
         li

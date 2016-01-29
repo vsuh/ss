@@ -1,6 +1,7 @@
-include inc_header
+include inc_header.jade
 body
   include inc_navbar
+
 
   br
   br
@@ -10,30 +11,48 @@ body
       div.form-group
 
         label(for="id-rep_dept") &nbsp;&nbsp;Подразделение: &nbsp;&nbsp;
-        select.form-control(id="id-rep_dept", name="rep_dept")
-          option(value="100") 100 САДУ
-          option(value="200") 200 ОРУ
-          option(value="300") 300 Отдел кадров
-          option(value="400") 400 САИМ
-        label(for="id-rep-period-from") &nbsp;&nbsp; С:&nbsp;
-        input.form-control(type="text", id="id-rep-period-from", name="rep-period-from")
-        label(for="id-rep-period-to") &nbsp;&nbsp; по:&nbsp;
-        input.form-control(type="text" id="id-rep-period-to" name="rep-period-to")
+        select.form-control(id="id-rep_dept", name="rep_dept", style="width=2")
+          - each val, key in depList
+            - if ( $depList[key] == $currDep )
+              option(value="#{key}", selected) #{val}
+            else
+              option(value="#{key}") #{val} #{depList[key]}
+
+        - if ( $mode == 'mv' or $mode == 'vc' or $mode == 'fr')
+          label(for="id-rep-period-from") &nbsp;&nbsp; С:&nbsp;
+          input.form-control(type="text", id="id-rep-period-from", name="rep-period-from")
+          label(for="id-rep-period-to") &nbsp;&nbsp; по:&nbsp;
+          input.form-control(type="text", id="id-rep-period-to", name="rep-period-to")
+        - if $mode == 'mv'
+          label(for="id-rep-purp") &nbsp;&nbsp; Причина:&nbsp;
+          select.form-control(id="id-rep-purp", name="rep-purp")
+            option(value='0') Не выбрано (Все)
+            option(value='Перемещение0') Перемещение
+            option(value='Увольнение') Увольнение
+            option(value='Прием') Прием
         span &nbsp;&nbsp;
         button.btn.btn-default(type="submit", data-toggle="#formframe") Сформировать
 
   div.col-sm-24.main
-  	if $mode == 'bd'
-	   	h4.sub-header Дни рождения сотрудников подразделения ОРЭиТ
-  	if $mode == 'mv'
-	   	h4.sub-header Перемещения сотрудников 
-  	if $mode == 'ls'
-	   	h4.sub-header Списочный состав
-  	if $mode == 'vc'
-	   	h4.sub-header Отпуска сотрудников
-  	if $mode == 'fr'
-	   	h4.sub-header Уволенные сотрудники
+    if $mode == 'bd'
+      h4.sub-header Дни рождения сотрудников #{currDep}
+    if $mode == 'mv'
+      h4.sub-header Перемещения сотрудников #{currDep}
+    if $mode == 'ls'
+      h4.sub-header Списочный состав #{currDep}
+    if $mode == 'vc'
+      h4.sub-header Отпуска сотрудников #{currDep}
+    if $mode == 'fr'
+      h4.sub-header Уволенные сотрудники #{currDep}
 
-    h2= 'Mode = '.$mode
+
+    table
+      tr
+        - each obj in content
+        td= obj->HBCode
+        td= obj->HBName
+        td= obj->HBDept
+        td= obj->HBDay
+        td= obj->HBMonth
 
   include inc_footer

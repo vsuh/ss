@@ -1,29 +1,32 @@
 <?php
-header ("Content-Type: text/html; charset=utf-8");
-require_once 'vendor/autoload.php';
-require_once ''
-//use Tale\Jade;
+  echo "-------------yes, i'm lamo-----<br><br>";
+  require_once 'vendor/autoload.php';
+  require_once 'pub/lib/function.php';
 
-var_dump($_GET);
-//print_r($_GLOBALS);
-var_dump($_POST);
-$mode = ($_GET['mode']) ?  $_GET['mode'] : "birthday";
+  use Jade\Jade;
 
-$tpl = 'index';
-//Include the vendor/autoload.php if you're using composer!
-//include('vendor/autoload.php');
+  $jade 		= new Jade();
+  $tpl_dir 	= __DIR__.'\pub\tpls';
+  $jext 		= '.jade';
+  $client   = null;
+  //var_dump($_POST);
+  $depList = getDepartmentList();
 
-$renderer = new Jade\Renderer([
-//	        'lifeTime' => 3600,
-            'paths' => [__DIR__.'/pub/tpls']
+  $mode = ($_GET['mode']) ?  $_GET['mode'] : 'bd';
+  $currDep = ($_POST['rep_dept']) ? $depList[$_POST['rep_dept']] : null;
+  $tpl = $tpl_dir . '\index' . $jext;
+  $bd = get_bd_content($_POST['rep_dept']);
 
- ]);
 
-echo $renderer->render($tpl,
-	[
-	'mode' => $mode,
-	'title' => 'Дни рождения сотрудников',
-	'content' => 'С днем рождения!'
-	]);
+var_dump($bd);
+  $jade->render($tpl,
+    [
+      'currDep' => $currDep,
+      'depList' => $depList,
+      'mode' => $mode,
+      'title' => 'Списки сотрудников сотрудников',
+      'content' => $bd
+    ]);
+
 
 ?>

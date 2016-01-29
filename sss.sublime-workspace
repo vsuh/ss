@@ -155,7 +155,7 @@
 			"file": "pub/tpls/inc_navbar.jade",
 			"settings":
 			{
-				"buffer_size": 1110,
+				"buffer_size": 1496,
 				"line_ending": "Windows"
 			}
 		},
@@ -163,15 +163,15 @@
 			"file": "pub/tpls/inc_footer.jade",
 			"settings":
 			{
-				"buffer_size": 390,
+				"buffer_size": 387,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "pub/tpls/inc_datepicker.js",
+			"file": "pub/tpls/inc_datepicker_js.jade",
 			"settings":
 			{
-				"buffer_size": 531,
+				"buffer_size": 565,
 				"line_ending": "Windows"
 			}
 		},
@@ -179,7 +179,7 @@
 			"file": "pub/tpls/index.jade",
 			"settings":
 			{
-				"buffer_size": 1283,
+				"buffer_size": 1301,
 				"line_ending": "Windows"
 			}
 		},
@@ -187,16 +187,30 @@
 			"file": "pub/tpls/inc_header.jade",
 			"settings":
 			{
-				"buffer_size": 1036,
+				"buffer_size": 920,
 				"line_ending": "Windows",
 				"name": "p header"
 			}
 		},
 		{
+			"contents": "<?php\n\nrequire_once 'vendor/autoload.php';\nrequire_once 'pub/lib/function.php';\n\nuse Jade\\Jade;\n\n$jade 		= new Jade();\n$tpl_dir 	= __DIR__.'\\pub\\tpls';\n$jext 		= '.jade';\n\n// var_dump($_POST);\n\n$mode = ($_GET['mode']) ?  $_GET['mode'] : 'bd';\n\n$tpl = $tpl_dir . '\\index' . $jext;\n\n$jade->render($tpl,\n	[\n	'compileDebug' => true;\n	'mode' => $mode,\n	'title' => 'Дни рождения сотрудников',\n	'content' => 'С днем рождения!'\n	]);\n\n\n?>\n",
 			"file": "index.php",
+			"file_size": 466,
+			"file_write_time": 130985332940082747,
 			"settings":
 			{
-				"buffer_size": 598,
+				"buffer_size": 430,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php\n\n function ws_init() {\n	  ini_set(\"soap.wsdl_cache_enabled\",\"0\"); \n	  $_ws = 'http://'.$_SERVER[\"HTTP_HOST\"].\"/wsb/ws/wsSotrList.1cws?wsdl\";\n	  $dbg = true;\n\n	try {\n	    $client = @new SoapClient($_ws);\n		} catch (Exception $e) {\n			var_dump($e);\n	    echo \"<hr><b>ERROR:(\".basename(__FILE__).\":\".$e.line.\") </b>\".$e->getMessage().\"<hr>\";\n		$client = null;\n		exit();\n	}\n}\n\n\n?>",
+			"file": "pub/lib/function.php",
+			"file_size": 550,
+			"file_write_time": 130985331070603163,
+			"settings":
+			{
+				"buffer_size": 382,
 				"line_ending": "Windows"
 			}
 		},
@@ -327,10 +341,12 @@
 	[
 		"/E/www/OpenServer/domains/sss",
 		"/E/www/OpenServer/domains/sss/pub",
+		"/E/www/OpenServer/domains/sss/pub/lib",
 		"/E/www/OpenServer/domains/sss/pub/tpls"
 	],
 	"file_history":
 	[
+		"/E/www/OpenServer/domains/sss/pub/tpls/inc_datepicker_js.jade",
 		"/E/www/OpenServer/domains/sss/pub/tpls/includes.jade",
 		"/E/www/OpenServer/domains/sss/sss.sublime-project",
 		"/E/www/OpenServer/domains/sss/.htaccess",
@@ -355,6 +371,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"          li\n            a(href=\"?mode=fr\") Уволенные\n",
 			"tmp",
 			"ПолучитьСтрокуСостоянияОбмена",
 			"hhh",
@@ -398,7 +415,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -425,10 +442,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1296.0,
+						"translation.y": 196.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -437,20 +454,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1110,
+						"buffer_size": 1496,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								717,
-								717
+								1236,
+								1236
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -458,7 +475,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -467,15 +484,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 390,
+						"buffer_size": 387,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26,
-								26
+								46,
+								46
 							]
 						],
 						"settings":
@@ -486,36 +503,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "pub/tpls/inc_datepicker.js",
+					"file": "pub/tpls/inc_datepicker_js.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 531,
+						"buffer_size": 565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								561,
+								561
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -524,20 +541,20 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1283,
+						"buffer_size": 1301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								877,
-								852
+								1289,
+								1289
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -552,15 +569,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1036,
+						"buffer_size": 920,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1023,
-								1023
+								920,
+								920
 							]
 						],
 						"settings":
@@ -574,7 +591,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -583,15 +600,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 598,
+						"buffer_size": 430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								111,
-								111
+								328,
+								328
 							]
 						],
 						"settings":
@@ -602,11 +619,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
+					"file": "pub/lib/function.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								379,
+								379
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "sss.sublime-project",
 					"semi_transient": false,
 					"settings":
@@ -630,7 +675,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -686,7 +731,7 @@
 		"rows":
 		[
 			0.0,
-			0.681750219877,
+			0.956024626209,
 			1.0
 		]
 	},
@@ -834,7 +879,7 @@
 	},
 	"show_minimap": false,
 	"show_open_files": true,
-	"show_tabs": true,
+	"show_tabs": false,
 	"side_bar_visible": true,
 	"side_bar_width": 213.0,
 	"status_bar_visible": true,
