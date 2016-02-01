@@ -10,8 +10,8 @@
   $jext 		= '.jade';
 
 
- echo "<br><br><br><br><br><br><br><br><br><br>";
- var_dump($_POST);
+ echo "<br><br><br><br>";
+  //  var_dump($_POST);
   $depList = getDepartmentList();
 
   $mode = ($_GET['mode']) ?  $_GET['mode'] : 'bd';
@@ -22,13 +22,16 @@
   switch( $mode ){
     case 'bd' : $content = get_bd_content($currDep); break;
     case 'mv' : $content = get_mv_content($currDep, $_POST); break;
+    case 'ls' : $content = get_list_employee($currDep); break;
+    case 'vc' : $content = get_vacations($currDep, $_POST); break;
+    case 'fr' : $content = get_fired_list($currDep, $_POST); break;
   }
  }
 
-
-//  var_dump($depList);
+//  echo 'content';
+//    var_dump($content);
     //  var_dump($tpl);
-  $jade->render($tpl,
+ $jade->render($tpl,
     [
       'currDepCode' => $currDep,
       'currDep' => ($currDep == "000000000") ? "" : $depList[$currDep],
@@ -38,9 +41,9 @@
       'content' => (is_array($content)) ? $content : array(),
       'arrMonth' => get_month_array(),
       'PeriodBeg' => $_POST['rep-period-from'],
-      'PeriodEnd' => $_POST['rep-period-to']
+      'PeriodEnd' => $_POST['rep-period-to'],
+      'go' => $_POST['go'],
+      'reason' => $_POST['rep-purp']
     ]);
-// , value="#{PeriodBeg}"
-// , value="#{PeriodEnd}"
 
 ?>

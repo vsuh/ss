@@ -9,34 +9,34 @@ div.navbar.navbar-default.navbar-fixed-top(role="navigation")
       a.navbar-brand(href="?mode=bd") Список сотрудников
     div.collapse.navbar-collapse#nav-bar-id
       ul.nav.navbar-nav
-        if $mode == 'bd'
+        - if $mode == 'bd'
           li.active
             a(href="?mode=bd", data-target='#formframe', data-toggle="collapse") Дни рождения
-        else
+        - else
           li
             a(href="?mode=bd") Дни рождения
-        if $mode == 'mv'
+        - if $mode == 'mv'
           li.active
             a(href="?mode=mv", data-toggle="collapse") Перемещения
-        else
+        - else
           li
             a(href="?mode=mv") Перемещения
-        if $mode == 'ls'
+        - if $mode == 'ls'
           li.active
             a(href="?mode=ls", data-toggle="collapse") Списочный состав
-        else
+        - else
           li
             a(href="?mode=ls") Списочный состав
-        if $mode == 'vc'
+        - if $mode == 'vc'
           li.active
             a(href="?mode=vc", data-toggle="collapse") Отпуска
-        else
+        - else
           li
             a(href="?mode=vc") Отпуска
-        if $mode == 'fr'
+        - if $mode == 'fr'
           li.active
             a(href="?mode=fr", data-toggle="collapse") Уволенные
-        else
+        - else
           li
             a(href="?mode=fr") Уволенные
         li &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

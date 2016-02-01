@@ -1,0 +1,44 @@
+include inc_header.jade
+body
+  include inc_navbar
+
+  div#formframe.col-sm-24.main.collapse.in
+    form.form-inline(action="#", method="post", role="form")
+      div.form-group
+
+        label(for="id-rep_dept") &nbsp;&nbsp; Подразделение: &nbsp;&nbsp;
+        select.form-control(id="id-rep_dept", name="rep_dept", style="width:190")
+          - each val, key in depList
+            - if ( $key == $currDepCode )
+              option(value="#{key}", selected) #{val}
+            - else
+              option(value="#{key}") #{val} #{depList[key]}
+
+        span &nbsp;&nbsp;
+        button.btn.btn-default(type="submit", name="go", value="true", data-toggle="#formframe") Сформировать
+  - if (go)      
+    div.col-sm-24.main
+      h3.sub-header.text-center Список сотрудников #{currDep}
+
+      table.table.table-striped
+        tr
+          th #
+          th Подразделение
+          th Таб. №
+          th Сотрудник
+          th Должность
+          th Вид занятости
+          th Код подразделения
+            - $Npp = 0
+            - each obj in content
+              - $Npp++
+              tr
+                td= $Npp
+                td= obj['Department']
+                td= obj['EmpCode']
+                td= obj['Employee']
+                td= obj['Position']
+                td= obj['OccupationType']
+                td= obj['DepCode']
+                
+  include inc_footer
