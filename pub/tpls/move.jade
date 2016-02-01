@@ -20,9 +20,9 @@ body
 
         - if ( $mode == 'mv' or $mode == 'vc' or $mode == 'fr')
           label(for="id-rep-period-from") &nbsp;&nbsp; С:&nbsp;
-          input.form-control(type="text", id="id-rep-period-from", name="rep-period-from", value="${PeriodBeg}")
+          input.form-control(type="text", id="id-rep-period-from", name="rep-period-from")
           label(for="id-rep-period-to") &nbsp;&nbsp; по:&nbsp;
-          input.form-control(type="text", id="id-rep-period-to", name="rep-period-to", value="#{PeriodEnd}")
+          input.form-control(type="text", id="id-rep-period-to", name="rep-period-to")
         - if $mode == 'mv'
           label(for="id-rep-purp") &nbsp;&nbsp; Причина:&nbsp;
           select.form-control(id="id-rep-purp", name="rep-purp")
@@ -47,25 +47,28 @@ body
 
     table.table.table-striped
         tr
+          th #
+          th Подразделение
           th Таб. №
           th Сотрудник
-          th Подразделение
           th Должность
-          th День рождения
-          - each obj in content
-            - if (obj['HBMonth'])
-              tr.info(data-toggle="tooltip", title="Юбилей #{obj['HBAge']} лет")
-                td= obj['HBCode']
-                td= obj['HBName']
-                td= obj['HBDept']
-                td= obj['HBPosition']
-                td= obj['HBDay']
-            - else
+          th Дата
+          th Событие
+          th Вид занятости
+          th Пред. подразделение
+          th Пред. должность
+ //-         - each obj in content
+            - $Npp++
               tr
+                td
+                td= obj['HBDept']
                 td= obj['HBCode']
                 td= obj['HBName']
-                td= obj['HBDept']
                 td= obj['HBPosition']
-                td= obj['HBDay']
+                td
+                td
+                td
+                td
+                td
 
     include inc_footer

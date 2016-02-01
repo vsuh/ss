@@ -11,7 +11,7 @@ div.navbar.navbar-default.navbar-fixed-top(role="navigation")
       ul.nav.navbar-nav
         if $mode == 'bd'
           li.active
-            a(href="?mode=bd", data-toggle="collapse") Дни рождения
+            a(href="?mode=bd", data-target='#formframe', data-toggle="collapse") Дни рождения
         else
           li
             a(href="?mode=bd") Дни рождения
