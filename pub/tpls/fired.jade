@@ -13,12 +13,16 @@ body
               option(value="#{key}", selected) #{val}
             - else
               option(value="#{key}") #{val} #{depList[key]}
+        label(for="id-rep-period-from") &nbsp;&nbsp; С:&nbsp;
+        input.form-control(type="text", value="#{PeriodBeg}", id="id-rep-period-from", name="rep-period-from")
+        label(for="id-rep-period-to") &nbsp;&nbsp; по:&nbsp;
+        input.form-control(type="text", value="#{PeriodEnd}", id="id-rep-period-to", name="rep-period-to")
 
         span &nbsp;&nbsp;
         button.btn.btn-default(type="submit", name="go", value="true", data-toggle="#formframe") Сформировать
-  - if (go)      
+  - if (go)
     div.col-sm-24.main
-      h3.sub-header.text-center Список сотрудников #{currDep}
+      h3.sub-header.text-center Список уволенных #{currDep}
 
       table.table.table-striped
         tr
@@ -27,8 +31,8 @@ body
           th Таб. №
           th Сотрудник
           th Должность
+          th Дата
           th Вид занятости
-          th Код подразделения
             - $Npp = 0
             - each obj in content
               - $Npp++
@@ -38,7 +42,7 @@ body
                 td= obj['EmpCode']
                 td= obj['Employee']
                 td= obj['Position']
+                td= obj['FireDate']
                 td= obj['OccupationType']
-                td= obj['DepCode']
-                
+
   include inc_footer

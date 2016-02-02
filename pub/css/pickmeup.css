@@ -7,7 +7,8 @@
  * @license		MIT License, see license.txt
  */
 .pickmeup {
-  background: #000;
+  background: #ddd;
+	border: 1px solid grey;
   border-radius: 0.4em;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -23,16 +24,17 @@
     text-align: center;
     width: 15em; }
     .pickmeup .pmu-instance .pmu-button {
-      color: #eee;
+      color: #666;
       cursor: pointer;
       outline: none;
       text-decoration: none; }
     .pickmeup .pmu-instance .pmu-today {
-      background: #17384d;
-      color: #88c5eb; }
+      background: #99B;
+	font-weight: bolder;
+      color: #944; }
     .pickmeup .pmu-instance .pmu-button:hover {
       background: "transparent";
-      color: #88c5eb; }
+      color: #111; }
     .pickmeup .pmu-instance .pmu-not-in-month {
       color: #666; }
     .pickmeup .pmu-instance .pmu-disabled,

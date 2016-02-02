@@ -16,7 +16,7 @@ body
 
         span &nbsp;&nbsp;
         button.btn.btn-default(type="submit", name="go", value="true", data-toggle="#formframe") Сформировать
-  - if (go)      
+  - if (go)
     div.col-sm-24.main
       h3.sub-header.text-center Список сотрудников #{currDep}
 
@@ -27,8 +27,9 @@ body
           th Таб. №
           th Сотрудник
           th Должность
-          th Вид занятости
-          th Код подразделения
+          th Дата начала
+          th Окончание
+          th Причина
             - $Npp = 0
             - each obj in content
               - $Npp++
@@ -38,7 +39,8 @@ body
                 td= obj['EmpCode']
                 td= obj['Employee']
                 td= obj['Position']
-                td= obj['OccupationType']
-                td= obj['DepCode']
-                
+                td= obj['DataBeg']
+                td= obj['DataEnd']
+                td= obj['Target']
+
   include inc_footer

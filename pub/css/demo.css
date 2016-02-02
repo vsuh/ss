@@ -7,7 +7,7 @@ body {
 	box-sizing      : border-box;
 }
 input {
-	border        : .2em solid #000;
+	border        : .2em solid #888;
 	border-radius : .3em;
 	padding       : 0.5em;
 	width         : 17.5em;
